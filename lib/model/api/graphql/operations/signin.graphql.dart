@@ -1,3 +1,4 @@
+import '../fragments/session.graphql.dart';
 import '../fragments/user.graphql.dart';
 import 'dart:async';
 import 'package:gql/ast.dart';
@@ -125,28 +126,9 @@ const MUTATIONSIGN_IN = const DocumentNode(definitions: [
                   arguments: [],
                   directives: [],
                   selectionSet: SelectionSetNode(selections: [
-                    FieldNode(
-                        name: NameNode(value: 'user'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: SelectionSetNode(selections: [
-                          FragmentSpreadNode(
-                              name: NameNode(value: 'UserFragment'),
-                              directives: []),
-                          FieldNode(
-                              name: NameNode(value: '__typename'),
-                              alias: null,
-                              arguments: [],
-                              directives: [],
-                              selectionSet: null)
-                        ])),
-                    FieldNode(
-                        name: NameNode(value: 'sessionToken'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null),
+                    FragmentSpreadNode(
+                        name: NameNode(value: 'SessionFragment'),
+                        directives: []),
                     FieldNode(
                         name: NameNode(value: '__typename'),
                         alias: null,
@@ -168,6 +150,7 @@ const MUTATIONSIGN_IN = const DocumentNode(definitions: [
             directives: [],
             selectionSet: null)
       ])),
+  FRAGMENT_DEFINITION_FRAGMENT_SESSION_FRAGMENT,
   FRAGMENT_DEFINITION_FRAGMENT_USER_FRAGMENT,
 ]);
 MutationsignIn _parserFnMutationsignIn(Map<String, dynamic> data) =>
@@ -299,7 +282,7 @@ extension UtilityExtensionMutationsignIn$logIn on MutationsignIn$logIn {
 }
 
 @JsonSerializable(explicitToJson: true)
-class MutationsignIn$logIn$viewer {
+class MutationsignIn$logIn$viewer implements FragmentSessionFragment {
   MutationsignIn$logIn$viewer(
       {required this.user,
       required this.sessionToken,
@@ -355,7 +338,8 @@ extension UtilityExtensionMutationsignIn$logIn$viewer
 }
 
 @JsonSerializable(explicitToJson: true)
-class MutationsignIn$logIn$viewer$user implements FragmentUserFragment {
+class MutationsignIn$logIn$viewer$user
+    implements FragmentSessionFragment$user, FragmentUserFragment {
   MutationsignIn$logIn$viewer$user(
       {required this.id,
       this.username,

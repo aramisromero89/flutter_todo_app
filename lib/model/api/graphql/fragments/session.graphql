@@ -1,0 +1,6 @@
+fragment SessionFragment on Viewer {
+  user {
+    ...UserFragment
+  }
+  sessionToken
+}
