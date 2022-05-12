@@ -55,17 +55,17 @@ Map<String, dynamic> _$MutationsignUp$signUpToJson(
 MutationsignUp$signUp$viewer _$MutationsignUp$signUp$viewerFromJson(
         Map<String, dynamic> json) =>
     MutationsignUp$signUp$viewer(
-      sessionToken: json['sessionToken'] as String,
       user: MutationsignUp$signUp$viewer$user.fromJson(
           json['user'] as Map<String, dynamic>),
+      sessionToken: json['sessionToken'] as String,
       $__typename: json['__typename'] as String,
     );
 
 Map<String, dynamic> _$MutationsignUp$signUp$viewerToJson(
         MutationsignUp$signUp$viewer instance) =>
     <String, dynamic>{
-      'sessionToken': instance.sessionToken,
       'user': instance.user.toJson(),
+      'sessionToken': instance.sessionToken,
       '__typename': instance.$__typename,
     };
 
