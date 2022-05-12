@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_todo_app/model/api/api_client.dart';
+import 'package:get_it/get_it.dart';
 
 void main() {
+  setupDependencies();
   runApp(const MyApp());
+}
+
+void setupDependencies() {
+  GetIt.I.registerSingleton<GraphqlApiClient>(GraphqlApiClient());
 }
 
 class MyApp extends StatelessWidget {
