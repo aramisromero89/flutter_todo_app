@@ -12,17 +12,17 @@ class AuthProvider extends ChangeNotifier {
     return _session;
   }
 
-  void signIn(String username, String password) async {
+  Future<void> signIn(String username, String password) async {
     _session = await _repository.signIn(username, password);
     notifyListeners();
   }
 
-  void signUp(String username, String password, String avatar) async {
+  Future<void> signUp(String username, String password, String avatar) async {
     _session = await _repository.signUp(username, password, avatar);
     notifyListeners();
   }
 
-  void signOut() async {
+  Future<void> signOut() async {
     final res = await _repository.signOut();
     if (res) {
       _session = null;
