@@ -1,3 +1,4 @@
+import '../fragments/session.graphql.dart';
 import '../fragments/user.graphql.dart';
 import 'dart:async';
 import 'package:gql/ast.dart';
@@ -148,28 +149,9 @@ const MUTATIONSIGN_UP = const DocumentNode(definitions: [
                   arguments: [],
                   directives: [],
                   selectionSet: SelectionSetNode(selections: [
-                    FieldNode(
-                        name: NameNode(value: 'sessionToken'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null),
-                    FieldNode(
-                        name: NameNode(value: 'user'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: SelectionSetNode(selections: [
-                          FragmentSpreadNode(
-                              name: NameNode(value: 'UserFragment'),
-                              directives: []),
-                          FieldNode(
-                              name: NameNode(value: '__typename'),
-                              alias: null,
-                              arguments: [],
-                              directives: [],
-                              selectionSet: null)
-                        ])),
+                    FragmentSpreadNode(
+                        name: NameNode(value: 'SessionFragment'),
+                        directives: []),
                     FieldNode(
                         name: NameNode(value: '__typename'),
                         alias: null,
@@ -191,6 +173,7 @@ const MUTATIONSIGN_UP = const DocumentNode(definitions: [
             directives: [],
             selectionSet: null)
       ])),
+  FRAGMENT_DEFINITION_FRAGMENT_SESSION_FRAGMENT,
   FRAGMENT_DEFINITION_FRAGMENT_USER_FRAGMENT,
 ]);
 MutationsignUp _parserFnMutationsignUp(Map<String, dynamic> data) =>
@@ -322,29 +305,29 @@ extension UtilityExtensionMutationsignUp$signUp on MutationsignUp$signUp {
 }
 
 @JsonSerializable(explicitToJson: true)
-class MutationsignUp$signUp$viewer {
+class MutationsignUp$signUp$viewer implements FragmentSessionFragment {
   MutationsignUp$signUp$viewer(
-      {required this.sessionToken,
-      required this.user,
+      {required this.user,
+      required this.sessionToken,
       required this.$__typename});
 
   @override
   factory MutationsignUp$signUp$viewer.fromJson(Map<String, dynamic> json) =>
       _$MutationsignUp$signUp$viewerFromJson(json);
 
-  final String sessionToken;
-
   final MutationsignUp$signUp$viewer$user user;
+
+  final String sessionToken;
 
   @JsonKey(name: '__typename')
   final String $__typename;
 
   Map<String, dynamic> toJson() => _$MutationsignUp$signUp$viewerToJson(this);
   int get hashCode {
-    final l$sessionToken = sessionToken;
     final l$user = user;
+    final l$sessionToken = sessionToken;
     final l$$__typename = $__typename;
-    return Object.hashAll([l$sessionToken, l$user, l$$__typename]);
+    return Object.hashAll([l$user, l$sessionToken, l$$__typename]);
   }
 
   @override
@@ -352,12 +335,12 @@ class MutationsignUp$signUp$viewer {
     if (identical(this, other)) return true;
     if (!(other is MutationsignUp$signUp$viewer) ||
         runtimeType != other.runtimeType) return false;
-    final l$sessionToken = sessionToken;
-    final lOther$sessionToken = other.sessionToken;
-    if (l$sessionToken != lOther$sessionToken) return false;
     final l$user = user;
     final lOther$user = other.user;
     if (l$user != lOther$user) return false;
+    final l$sessionToken = sessionToken;
+    final lOther$sessionToken = other.sessionToken;
+    if (l$sessionToken != lOther$sessionToken) return false;
     final l$$__typename = $__typename;
     final lOther$$__typename = other.$__typename;
     if (l$$__typename != lOther$$__typename) return false;
@@ -368,17 +351,18 @@ class MutationsignUp$signUp$viewer {
 extension UtilityExtensionMutationsignUp$signUp$viewer
     on MutationsignUp$signUp$viewer {
   MutationsignUp$signUp$viewer copyWith(
-          {String? sessionToken,
-          MutationsignUp$signUp$viewer$user? user,
+          {MutationsignUp$signUp$viewer$user? user,
+          String? sessionToken,
           String? $__typename}) =>
       MutationsignUp$signUp$viewer(
-          sessionToken: sessionToken == null ? this.sessionToken : sessionToken,
           user: user == null ? this.user : user,
+          sessionToken: sessionToken == null ? this.sessionToken : sessionToken,
           $__typename: $__typename == null ? this.$__typename : $__typename);
 }
 
 @JsonSerializable(explicitToJson: true)
-class MutationsignUp$signUp$viewer$user implements FragmentUserFragment {
+class MutationsignUp$signUp$viewer$user
+    implements FragmentSessionFragment$user, FragmentUserFragment {
   MutationsignUp$signUp$viewer$user(
       {required this.id,
       this.username,

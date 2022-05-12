@@ -4,10 +4,7 @@ mutation signIn($username:String!,$password:String!){
     password:$password
   }){
     viewer{
-      user{
-        ...UserFragment
-      }
-      sessionToken
+      ...SessionFragment
     }
   }
 }
