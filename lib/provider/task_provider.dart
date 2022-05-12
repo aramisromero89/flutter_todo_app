@@ -7,7 +7,7 @@ import 'package:get_it/get_it.dart';
 class TaskProvider extends ChangeNotifier {
   final _authProvider = GetIt.I<AuthProvider>();
 
-  final _repository = TaskRepository();
+  final _repository = GetIt.I<TaskRepository>();
 
   final List<Task> _tasks = [];
 

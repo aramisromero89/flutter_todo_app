@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_todo_app/model/api/api_client.dart';
+import 'package:flutter_todo_app/model/repository/auth_repository.dart';
+import 'package:flutter_todo_app/model/repository/task_repository.dart';
+import 'package:flutter_todo_app/provider/auth_provider.dart';
 import 'package:get_it/get_it.dart';
 
 void main() {
@@ -9,6 +12,9 @@ void main() {
 
 void setupDependencies() {
   GetIt.I.registerSingleton<GraphqlApiClient>(GraphqlApiClient());
+  GetIt.I.registerSingleton<AuthRepository>(AuthRepository());
+  GetIt.I.registerSingleton<TaskRepository>(TaskRepository());
+  GetIt.I.registerSingleton<AuthProvider>(AuthProvider());
 }
 
 class MyApp extends StatelessWidget {

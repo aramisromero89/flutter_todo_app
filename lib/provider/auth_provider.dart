@@ -1,9 +1,10 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter_todo_app/model/entity/session.dart';
 import 'package:flutter_todo_app/model/repository/auth_repository.dart';
+import 'package:get_it/get_it.dart';
 
 class AuthProvider extends ChangeNotifier {
-  final _repository = AuthRepository();
+  final _repository = GetIt.I<AuthRepository>();
 
   Session? _session;
 
