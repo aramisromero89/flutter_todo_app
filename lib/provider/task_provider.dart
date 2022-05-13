@@ -7,7 +7,7 @@ import 'package:get_it/get_it.dart';
 class TaskProvider extends ChangeNotifier {
   final _authProvider = GetIt.I<AuthProvider>();
 
-  final _repository = TaskRepository();
+  final _repository = GetIt.I<TaskRepository>();
 
   final List<Task> _tasks = [];
 
@@ -23,7 +23,7 @@ class TaskProvider extends ChangeNotifier {
     super.dispose();
   }
 
-  void refresh({List<Task>? list}) async {
+  Future<void> refresh({List<Task>? list}) async {
     _tasks.clear();
     if (list != null) {
       _tasks.addAll(list);
@@ -34,7 +34,7 @@ class TaskProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  void addTask(String text) async {
+  Future<void> addTask(String text) async {
     if (_authProvider.session != null) {
       List<Task> res = await _repository.create(_authProvider.session!.userId, text);
       if (res.isNotEmpty) {
@@ -43,7 +43,7 @@ class TaskProvider extends ChangeNotifier {
     }
   }
 
-  void removeTask(String taskId) async {
+  Future<void> removeTask(String taskId) async {
     final res = await _repository.delete(taskId);
     if (res != null) {
       _tasks.removeWhere((element) => element.id == res.id);
@@ -51,11 +51,11 @@ class TaskProvider extends ChangeNotifier {
     }
   }
 
-  void editTask(String taskId, String text) async {
+  Future<void> editTask(String taskId, String text) async {
     final res = await _repository.edit(taskId, text);
     if (res != null) {
       final index = _tasks.indexWhere((element) => element.id == res.id);
-      _tasks.fillRange(index, index, res);
+      _tasks.fillRange(index, 1, res);
     }
   }
 }
