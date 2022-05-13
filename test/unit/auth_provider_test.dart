@@ -6,21 +6,19 @@ import '../mock/mock_dependency.dart';
 main() async {
   TestWidgetsFlutterBinding.ensureInitialized();
   await mockDependencies();
+  final provider = GetIt.I<AuthProvider>();
   group("AuthProvider", () {
     test('SignUp', () async {
-      final provider = GetIt.I<AuthProvider>();
       await provider.signUp("a", "b", "c");
       expect(provider.session?.userName, equals("a"));
     });
 
     test('SignIn', () async {
-      final provider = GetIt.I<AuthProvider>();
       await provider.signIn("a", "b");
       expect(provider.session?.userName, equals("a"));
     });
 
     test('SignOut', () async {
-      final provider = GetIt.I<AuthProvider>();
       await provider.signOut();
       expect(provider.session, isNull);
     });
