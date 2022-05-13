@@ -9,7 +9,7 @@ main() async {
   final provider = GetIt.I<AuthProvider>();
   group("AuthProvider", () {
     test('SignUp', () async {
-      await provider.signUp("a", "b", "c");
+      await provider.signUp("a", "b");
       expect(provider.session?.userName, equals("a"));
     });
 

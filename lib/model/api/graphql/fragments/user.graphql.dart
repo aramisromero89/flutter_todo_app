@@ -6,10 +6,7 @@ part 'user.graphql.g.dart';
 @JsonSerializable(explicitToJson: true)
 class FragmentUserFragment {
   FragmentUserFragment(
-      {required this.id,
-      this.username,
-      this.avatar,
-      required this.$__typename});
+      {required this.id, this.username, required this.$__typename});
 
   @override
   factory FragmentUserFragment.fromJson(Map<String, dynamic> json) =>
@@ -19,8 +16,6 @@ class FragmentUserFragment {
 
   final String? username;
 
-  final String? avatar;
-
   @JsonKey(name: '__typename')
   final String $__typename;
 
@@ -28,9 +23,8 @@ class FragmentUserFragment {
   int get hashCode {
     final l$id = id;
     final l$username = username;
-    final l$avatar = avatar;
     final l$$__typename = $__typename;
-    return Object.hashAll([l$id, l$username, l$avatar, l$$__typename]);
+    return Object.hashAll([l$id, l$username, l$$__typename]);
   }
 
   @override
@@ -44,9 +38,6 @@ class FragmentUserFragment {
     final l$username = username;
     final lOther$username = other.username;
     if (l$username != lOther$username) return false;
-    final l$avatar = avatar;
-    final lOther$avatar = other.avatar;
-    if (l$avatar != lOther$avatar) return false;
     final l$$__typename = $__typename;
     final lOther$$__typename = other.$__typename;
     if (l$$__typename != lOther$$__typename) return false;
@@ -56,14 +47,10 @@ class FragmentUserFragment {
 
 extension UtilityExtensionFragmentUserFragment on FragmentUserFragment {
   FragmentUserFragment copyWith(
-          {String? id,
-          String? Function()? username,
-          String? Function()? avatar,
-          String? $__typename}) =>
+          {String? id, String? Function()? username, String? $__typename}) =>
       FragmentUserFragment(
           id: id == null ? this.id : id,
           username: username == null ? this.username : username(),
-          avatar: avatar == null ? this.avatar : avatar(),
           $__typename: $__typename == null ? this.$__typename : $__typename);
 }
 
@@ -81,12 +68,6 @@ const FRAGMENT_DEFINITION_FRAGMENT_USER_FRAGMENT = const FragmentDefinitionNode(
           selectionSet: null),
       FieldNode(
           name: NameNode(value: 'username'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null),
-      FieldNode(
-          name: NameNode(value: 'avatar'),
           alias: null,
           arguments: [],
           directives: [],

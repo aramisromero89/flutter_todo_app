@@ -341,10 +341,7 @@ extension UtilityExtensionMutationsignIn$logIn$viewer
 class MutationsignIn$logIn$viewer$user
     implements FragmentSessionFragment$user, FragmentUserFragment {
   MutationsignIn$logIn$viewer$user(
-      {required this.id,
-      this.username,
-      this.avatar,
-      required this.$__typename});
+      {required this.id, this.username, required this.$__typename});
 
   @override
   factory MutationsignIn$logIn$viewer$user.fromJson(
@@ -355,8 +352,6 @@ class MutationsignIn$logIn$viewer$user
 
   final String? username;
 
-  final String? avatar;
-
   @JsonKey(name: '__typename')
   final String $__typename;
 
@@ -365,9 +360,8 @@ class MutationsignIn$logIn$viewer$user
   int get hashCode {
     final l$id = id;
     final l$username = username;
-    final l$avatar = avatar;
     final l$$__typename = $__typename;
-    return Object.hashAll([l$id, l$username, l$avatar, l$$__typename]);
+    return Object.hashAll([l$id, l$username, l$$__typename]);
   }
 
   @override
@@ -381,9 +375,6 @@ class MutationsignIn$logIn$viewer$user
     final l$username = username;
     final lOther$username = other.username;
     if (l$username != lOther$username) return false;
-    final l$avatar = avatar;
-    final lOther$avatar = other.avatar;
-    if (l$avatar != lOther$avatar) return false;
     final l$$__typename = $__typename;
     final lOther$$__typename = other.$__typename;
     if (l$$__typename != lOther$$__typename) return false;
@@ -394,13 +385,9 @@ class MutationsignIn$logIn$viewer$user
 extension UtilityExtensionMutationsignIn$logIn$viewer$user
     on MutationsignIn$logIn$viewer$user {
   MutationsignIn$logIn$viewer$user copyWith(
-          {String? id,
-          String? Function()? username,
-          String? Function()? avatar,
-          String? $__typename}) =>
+          {String? id, String? Function()? username, String? $__typename}) =>
       MutationsignIn$logIn$viewer$user(
           id: id == null ? this.id : id,
           username: username == null ? this.username : username(),
-          avatar: avatar == null ? this.avatar : avatar(),
           $__typename: $__typename == null ? this.$__typename : $__typename);
 }

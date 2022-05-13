@@ -11,7 +11,6 @@ VariablesMutationsignUp _$VariablesMutationsignUpFromJson(
     VariablesMutationsignUp(
       username: json['username'] as String,
       password: json['password'] as String,
-      avatar: json['avatar'] as String?,
     );
 
 Map<String, dynamic> _$VariablesMutationsignUpToJson(
@@ -19,7 +18,6 @@ Map<String, dynamic> _$VariablesMutationsignUpToJson(
     <String, dynamic>{
       'username': instance.username,
       'password': instance.password,
-      'avatar': instance.avatar,
     };
 
 MutationsignUp _$MutationsignUpFromJson(Map<String, dynamic> json) =>
@@ -74,7 +72,6 @@ MutationsignUp$signUp$viewer$user _$MutationsignUp$signUp$viewer$userFromJson(
     MutationsignUp$signUp$viewer$user(
       id: json['id'] as String,
       username: json['username'] as String?,
-      avatar: json['avatar'] as String?,
       $__typename: json['__typename'] as String,
     );
 
@@ -83,6 +80,5 @@ Map<String, dynamic> _$MutationsignUp$signUp$viewer$userToJson(
     <String, dynamic>{
       'id': instance.id,
       'username': instance.username,
-      'avatar': instance.avatar,
       '__typename': instance.$__typename,
     };

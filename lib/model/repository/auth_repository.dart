@@ -26,9 +26,8 @@ class AuthRepository {
     return true;
   }
 
-  Future<Session?> signUp(String username, String password, String avatar) async {
-    final res = await _apiClient
-        .mutate<MutationsignUp>(OptionsMutationsignUp(variables: VariablesMutationsignUp(username: username, password: password, avatar: avatar)));
+  Future<Session?> signUp(String username, String password) async {
+    final res = await _apiClient.mutate<MutationsignUp>(OptionsMutationsignUp(variables: VariablesMutationsignUp(username: username, password: password)));
     if (res.error != null) {
       return null;
     }

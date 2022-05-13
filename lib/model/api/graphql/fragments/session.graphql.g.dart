@@ -28,7 +28,6 @@ FragmentSessionFragment$user _$FragmentSessionFragment$userFromJson(
     FragmentSessionFragment$user(
       id: json['id'] as String,
       username: json['username'] as String?,
-      avatar: json['avatar'] as String?,
       $__typename: json['__typename'] as String,
     );
 
@@ -37,6 +36,5 @@ Map<String, dynamic> _$FragmentSessionFragment$userToJson(
     <String, dynamic>{
       'id': instance.id,
       'username': instance.username,
-      'avatar': instance.avatar,
       '__typename': instance.$__typename,
     };

@@ -8,8 +8,7 @@ part 'signup.graphql.g.dart';
 
 @JsonSerializable(explicitToJson: true)
 class VariablesMutationsignUp {
-  VariablesMutationsignUp(
-      {required this.username, required this.password, this.avatar});
+  VariablesMutationsignUp({required this.username, required this.password});
 
   @override
   factory VariablesMutationsignUp.fromJson(Map<String, dynamic> json) =>
@@ -19,14 +18,11 @@ class VariablesMutationsignUp {
 
   final String password;
 
-  final String? avatar;
-
   Map<String, dynamic> toJson() => _$VariablesMutationsignUpToJson(this);
   int get hashCode {
     final l$username = username;
     final l$password = password;
-    final l$avatar = avatar;
-    return Object.hashAll([l$username, l$password, l$avatar]);
+    return Object.hashAll([l$username, l$password]);
   }
 
   @override
@@ -40,9 +36,6 @@ class VariablesMutationsignUp {
     final l$password = password;
     final lOther$password = other.password;
     if (l$password != lOther$password) return false;
-    final l$avatar = avatar;
-    final lOther$avatar = other.avatar;
-    if (l$avatar != lOther$avatar) return false;
     return true;
   }
 }
@@ -106,12 +99,6 @@ const MUTATIONSIGN_UP = const DocumentNode(definitions: [
             type:
                 NamedTypeNode(name: NameNode(value: 'String'), isNonNull: true),
             defaultValue: DefaultValueNode(value: null),
-            directives: []),
-        VariableDefinitionNode(
-            variable: VariableNode(name: NameNode(value: 'avatar')),
-            type: NamedTypeNode(
-                name: NameNode(value: 'String'), isNonNull: false),
-            defaultValue: DefaultValueNode(value: null),
             directives: [])
       ],
       directives: [],
@@ -133,11 +120,7 @@ const MUTATIONSIGN_UP = const DocumentNode(definitions: [
                           ObjectFieldNode(
                               name: NameNode(value: 'password'),
                               value: VariableNode(
-                                  name: NameNode(value: 'password'))),
-                          ObjectFieldNode(
-                              name: NameNode(value: 'avatar'),
-                              value:
-                                  VariableNode(name: NameNode(value: 'avatar')))
+                                  name: NameNode(value: 'password')))
                         ]))
                   ]))
             ],
@@ -364,10 +347,7 @@ extension UtilityExtensionMutationsignUp$signUp$viewer
 class MutationsignUp$signUp$viewer$user
     implements FragmentSessionFragment$user, FragmentUserFragment {
   MutationsignUp$signUp$viewer$user(
-      {required this.id,
-      this.username,
-      this.avatar,
-      required this.$__typename});
+      {required this.id, this.username, required this.$__typename});
 
   @override
   factory MutationsignUp$signUp$viewer$user.fromJson(
@@ -378,8 +358,6 @@ class MutationsignUp$signUp$viewer$user
 
   final String? username;
 
-  final String? avatar;
-
   @JsonKey(name: '__typename')
   final String $__typename;
 
@@ -388,9 +366,8 @@ class MutationsignUp$signUp$viewer$user
   int get hashCode {
     final l$id = id;
     final l$username = username;
-    final l$avatar = avatar;
     final l$$__typename = $__typename;
-    return Object.hashAll([l$id, l$username, l$avatar, l$$__typename]);
+    return Object.hashAll([l$id, l$username, l$$__typename]);
   }
 
   @override
@@ -404,9 +381,6 @@ class MutationsignUp$signUp$viewer$user
     final l$username = username;
     final lOther$username = other.username;
     if (l$username != lOther$username) return false;
-    final l$avatar = avatar;
-    final lOther$avatar = other.avatar;
-    if (l$avatar != lOther$avatar) return false;
     final l$$__typename = $__typename;
     final lOther$$__typename = other.$__typename;
     if (l$$__typename != lOther$$__typename) return false;
@@ -417,13 +391,9 @@ class MutationsignUp$signUp$viewer$user
 extension UtilityExtensionMutationsignUp$signUp$viewer$user
     on MutationsignUp$signUp$viewer$user {
   MutationsignUp$signUp$viewer$user copyWith(
-          {String? id,
-          String? Function()? username,
-          String? Function()? avatar,
-          String? $__typename}) =>
+          {String? id, String? Function()? username, String? $__typename}) =>
       MutationsignUp$signUp$viewer$user(
           id: id == null ? this.id : id,
           username: username == null ? this.username : username(),
-          avatar: avatar == null ? this.avatar : avatar(),
           $__typename: $__typename == null ? this.$__typename : $__typename);
 }

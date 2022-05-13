@@ -4,7 +4,7 @@ import 'package:flutter_todo_app/model/repository/auth_repository.dart';
 class MockAuthRepository extends AuthRepository {
   @override
   Future<Session?> signIn(String username, String password) async {
-    return Session(userId: "a", userName: username, token: "a", avatar: "a");
+    return Session(userId: "a", userName: username, token: "a");
   }
 
   @override
@@ -13,7 +13,7 @@ class MockAuthRepository extends AuthRepository {
   }
 
   @override
-  Future<Session?> signUp(String username, String password, String avatar) async {
-    return Session(userId: "a", userName: username, token: "a", avatar: avatar);
+  Future<Session?> signUp(String username, String password) async {
+    return Session(userId: "a", userName: username, token: "a");
   }
 }

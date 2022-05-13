@@ -17,8 +17,8 @@ class AuthProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  Future<void> signUp(String username, String password, String avatar) async {
-    _session = await _repository.signUp(username, password, avatar);
+  Future<void> signUp(String username, String password) async {
+    _session = await _repository.signUp(username, password);
     notifyListeners();
   }
 
