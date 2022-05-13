@@ -55,7 +55,7 @@ class TaskProvider extends ChangeNotifier {
     final res = await _repository.edit(taskId, text);
     if (res != null) {
       final index = _tasks.indexWhere((element) => element.id == res.id);
-      _tasks.fillRange(index, index, res);
+      _tasks.fillRange(index, 1, res);
     }
   }
 }
