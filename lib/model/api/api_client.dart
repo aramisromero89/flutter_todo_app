@@ -29,9 +29,9 @@ class GraphqlApiClient {
       return;
     }
     if (exception.linkException != null) {
-      throw Exception("Network Error: ${exception.linkException?.originalException.error}");
+      throw "Network Error: ${exception.linkException?.originalException.error}";
     }
-    throw Exception(exception.graphqlErrors.first.message);
+    throw exception.graphqlErrors.first.message;
   }
 
   TData? _parseData<TData>(Map<String, dynamic>? data, TData Function(Map<String, dynamic>) parseFn) {
