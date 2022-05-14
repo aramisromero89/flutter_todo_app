@@ -25,17 +25,12 @@ class SignUpProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  void cancel() {
-    _authProvider.signingUp = false;
-  }
-
   Future<void> submit() async {
     if (formKey.currentState!.validate()) {
       _submitting = true;
       notifyListeners();
       try {
         await _authProvider.signUp(usernameController.text, passwordController.text);
-        cancel();
       } catch (e) {
         _submitting = false;
         notifyListeners();

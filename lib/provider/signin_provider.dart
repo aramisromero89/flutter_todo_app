@@ -17,10 +17,6 @@ class SignInProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  void signUp() {
-    _authProvider.signingUp = true;
-  }
-
   Future<void> submit() async {
     if (formKey.currentState!.validate()) {
       _submitting = true;

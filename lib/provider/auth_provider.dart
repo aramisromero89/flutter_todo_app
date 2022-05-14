@@ -10,17 +10,6 @@ class AuthProvider extends ChangeNotifier {
 
   Session? get session => _session;
 
-  bool _signingUp = false;
-  bool get signingUp => _signingUp;
-
-  set signingUp(bool value) {
-    if (kDebugMode) {
-      print("signin ${value.toString()}");
-    }
-    _signingUp = value;
-    notifyListeners();
-  }
-
   Future<void> signIn(String username, String password) async {
     _session = await _repository.signIn(username, password);
     notifyListeners();
@@ -28,7 +17,6 @@ class AuthProvider extends ChangeNotifier {
 
   Future<void> signUp(String username, String password) async {
     _session = await _repository.signUp(username, password);
-    _signingUp = false;
     notifyListeners();
   }
 
