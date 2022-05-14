@@ -6,7 +6,7 @@ import 'package:flutter_todo_app/model/repository/auth_repository.dart';
 import 'package:flutter_todo_app/model/repository/task_repository.dart';
 import 'package:flutter_todo_app/provider/auth_provider.dart';
 import 'package:beamer/beamer.dart';
-import 'package:flutter_todo_app/view/pages/router.dart';
+import 'package:flutter_todo_app/view/router.dart';
 import 'package:get_it/get_it.dart';
 import 'i18n/strings.g.dart';
 
