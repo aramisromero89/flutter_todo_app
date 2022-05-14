@@ -29,7 +29,7 @@ class GraphqlApiClient {
       return;
     }
     if (exception.linkException != null) {
-      throw "Network Error: ${exception.linkException?.originalException.error}";
+      throw "Network Error";
     }
     throw exception.graphqlErrors.first.message;
   }
