@@ -4,6 +4,7 @@ import 'package:flutter_todo_app/i18n/strings.g.dart';
 import 'package:flutter_todo_app/view/components/signin_view.dart';
 
 class SignInLocation extends BeamLocation<BeamState> {
+  static String path = '/signin';
   @override
   List<BeamPage> pagesBuilder(BuildContext context, BeamState state) => [
         BeamPage(
@@ -13,5 +14,5 @@ class SignInLocation extends BeamLocation<BeamState> {
       ];
 
   @override
-  List<String> get pathBlueprints => ['/signin'];
+  List<String> get pathBlueprints => [path];
 }

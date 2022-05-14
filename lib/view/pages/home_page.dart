@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_todo_app/i18n/strings.g.dart';
 
 class HomeLocation extends BeamLocation<BeamState> {
+  static String path = '/';
   @override
   List<BeamPage> pagesBuilder(BuildContext context, BeamState state) => [
         BeamPage(
@@ -12,5 +13,5 @@ class HomeLocation extends BeamLocation<BeamState> {
       ];
 
   @override
-  List<String> get pathBlueprints => ['/'];
+  List<String> get pathBlueprints => [path];
 }
