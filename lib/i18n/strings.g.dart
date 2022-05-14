@@ -2,9 +2,9 @@
  * Generated file. Do not edit.
  *
  * Locales: 2
- * Strings: 18 (9.0 per locale)
+ * Strings: 20 (10.0 per locale)
  *
- * Built on 2022-05-14 at 03:16 UTC
+ * Built on 2022-05-14 at 12:27 UTC
  */
 
 import 'package:flutter/widgets.dart';
@@ -308,6 +308,7 @@ class _StringsEn {
 
   // Translations
   late final _StringsAuthEn auth = _StringsAuthEn._(_root);
+  late final _StringsPagesEn pages = _StringsPagesEn._(_root);
 }
 
 // Path: auth
@@ -326,6 +327,16 @@ class _StringsAuthEn {
   String get password => 'Password';
   String get repeatPassword => 'Repeat password';
   String get passwordMustMatch => 'Passwords must match';
+}
+
+// Path: pages
+class _StringsPagesEn {
+  _StringsPagesEn._(this._root);
+
+  final _StringsEn _root; // ignore: unused_field
+
+  // Translations
+  String get home => 'Home';
 }
 
 // Path: <root>
@@ -348,6 +359,8 @@ class _StringsEs implements _StringsEn {
   // Translations
   @override
   late final _StringsAuthEs auth = _StringsAuthEs._(_root);
+  @override
+  late final _StringsPagesEs pages = _StringsPagesEs._(_root);
 }
 
 // Path: auth
@@ -378,6 +391,18 @@ class _StringsAuthEs implements _StringsAuthEn {
   String get passwordMustMatch => 'Las contraseñas deben coincidir';
 }
 
+// Path: pages
+class _StringsPagesEs implements _StringsPagesEn {
+  _StringsPagesEs._(this._root);
+
+  @override
+  final _StringsEs _root; // ignore: unused_field
+
+  // Translations
+  @override
+  String get home => 'Inicio';
+}
+
 /// Flat map(s) containing all translations.
 /// Only for edge cases! For simple maps, use the map function of this library.
 
@@ -393,6 +418,7 @@ extension on _StringsEn {
       'auth.password': 'Password',
       'auth.repeatPassword': 'Repeat password',
       'auth.passwordMustMatch': 'Passwords must match',
+      'pages.home': 'Home',
     };
   }
 }
@@ -409,6 +435,7 @@ extension on _StringsEs {
       'auth.password': 'Contraseña',
       'auth.repeatPassword': 'Repetir contraseña',
       'auth.passwordMustMatch': 'Las contraseñas deben coincidir',
+      'pages.home': 'Inicio',
     };
   }
 }

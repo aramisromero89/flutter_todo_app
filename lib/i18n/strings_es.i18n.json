@@ -9,5 +9,8 @@
     "password": "Contraseña",
     "repeatPassword": "Repetir contraseña",
     "passwordMustMatch": "Las contraseñas deben coincidir"
+  },
+  "pages":{
+    "home": "Inicio"
   }
 }

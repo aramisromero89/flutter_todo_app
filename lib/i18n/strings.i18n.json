@@ -9,5 +9,8 @@
     "password": "Password",
     "repeatPassword": "Repeat password",
     "passwordMustMatch": "Passwords must match"
+  },
+  "pages":{
+    "home": "Home"
   }
 }
