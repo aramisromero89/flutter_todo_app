@@ -5,20 +5,18 @@ import 'package:flutter_todo_app/view/pages/signin_page.dart';
 import 'package:flutter_todo_app/view/pages/signup_page.dart';
 import 'package:get_it/get_it.dart';
 
-final routerDelegate = BeamerRouterDelegate(
-    locationBuilder: BeamerLocationBuilder(
-      beamLocations: [HomeLocation(), SignInLocation(), SignUpLocation()],
-    ),
-    guards: [
-      BeamGuard(
-        check: (context, location) {
-          final provider = GetIt.I<AuthProvider>();
-          return provider.session != null;
-        },
-        guardNonMatching: true,
-        pathBlueprints: [
-          SignInLocation.path,
-          SignUpLocation.path,
-        ],
-      )
-    ]);
+BeamerRouterDelegate router() => BeamerRouterDelegate(
+        initialPath: HomeLocation.path,
+        locationBuilder: BeamerLocationBuilder(
+          beamLocations: [HomeLocation(), SignInLocation(), SignUpLocation()],
+        ),
+        guards: [
+          BeamGuard(
+            check: (context, location) {
+              final provider = GetIt.I<AuthProvider>();
+              return provider.session != null;
+            },
+            beamTo: (_) => SignInLocation(),
+            pathBlueprints: [HomeLocation.path],
+          )
+        ]);
