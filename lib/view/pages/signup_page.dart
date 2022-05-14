@@ -10,8 +10,9 @@ class SignUpLocation extends BeamLocation<BeamState> {
         BeamPage(
           key: ValueKey(path),
           name: t.pages.home,
-          child: const Scaffold(
-            body: SignUpView(),
+          child: Scaffold(
+            appBar: AppBar(),
+            body: const SignUpView(),
           ),
         ),
       ];

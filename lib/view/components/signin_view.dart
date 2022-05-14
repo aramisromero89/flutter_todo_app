@@ -1,6 +1,9 @@
+import 'package:beamer/beamer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_todo_app/i18n/strings.g.dart';
 import 'package:flutter_todo_app/provider/signin_provider.dart';
+import 'package:flutter_todo_app/view/pages/home_page.dart';
+import 'package:flutter_todo_app/view/pages/signup_page.dart';
 import 'package:flutter_todo_app/view/view_utils.dart';
 import 'package:form_validator/form_validator.dart';
 import 'package:provider/provider.dart';
@@ -27,6 +30,7 @@ class SignInView extends StatelessWidget {
             onPressed: () async {
               try {
                 await provider.submit();
+                Beamer.of(context).beamToNamed(HomeLocation.path);
               } catch (e) {
                 ViewUtils.showSnackBar(context, e.toString());
               }
@@ -38,7 +42,7 @@ class SignInView extends StatelessWidget {
             onPressed: provider.submitting
                 ? null
                 : () {
-                    //navigate to signup
+                    Beamer.of(context).beamToNamed(SignUpLocation.path);
                   },
             child: Text(t.auth.signup),
           ),

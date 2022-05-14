@@ -1,6 +1,8 @@
+import 'package:beamer/beamer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_todo_app/i18n/strings.g.dart';
 import 'package:flutter_todo_app/provider/signup_provider.dart';
+import 'package:flutter_todo_app/view/pages/signin_page.dart';
 import 'package:flutter_todo_app/view/view_utils.dart';
 import 'package:form_validator/form_validator.dart';
 import 'package:provider/provider.dart';
@@ -35,7 +37,9 @@ class SignUpView extends StatelessWidget {
             child: Text(t.auth.signup),
           ),
           OutlinedButton(
-            onPressed: () => provider.cancel(),
+            onPressed: () {
+              Beamer.of(context).beamToNamed(SignInLocation.path);
+            },
             child: Text(t.auth.cancel),
           ),
         ]
