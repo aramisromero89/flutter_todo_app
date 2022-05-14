@@ -1,5 +1,13 @@
-{
-  "signup": "Sign Up",
-  "signin": "Sign In",
-  "signout": "Logout"
+{  
+  "auth": {
+    "o": "or",
+    "signup": "Sign Up",
+    "signin": "Sign In",
+    "signout": "Logout",
+    "cancel": "Cancel",
+    "username": "Username",
+    "password": "Password",
+    "repeatPassword": "Repeat password",
+    "passwordMustMatch": "Passwords must match"
+  }
 }

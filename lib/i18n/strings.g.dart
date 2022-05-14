@@ -2,9 +2,9 @@
  * Generated file. Do not edit.
  *
  * Locales: 2
- * Strings: 6 (3.0 per locale)
+ * Strings: 18 (9.0 per locale)
  *
- * Built on 2022-05-13 at 18:34 UTC
+ * Built on 2022-05-14 at 03:16 UTC
  */
 
 import 'package:flutter/widgets.dart';
@@ -307,9 +307,25 @@ class _StringsEn {
   late final _StringsEn _root = this; // ignore: unused_field
 
   // Translations
+  late final _StringsAuthEn auth = _StringsAuthEn._(_root);
+}
+
+// Path: auth
+class _StringsAuthEn {
+  _StringsAuthEn._(this._root);
+
+  final _StringsEn _root; // ignore: unused_field
+
+  // Translations
+  String get o => 'or';
   String get signup => 'Sign Up';
   String get signin => 'Sign In';
   String get signout => 'Logout';
+  String get cancel => 'Cancel';
+  String get username => 'Username';
+  String get password => 'Password';
+  String get repeatPassword => 'Repeat password';
+  String get passwordMustMatch => 'Passwords must match';
 }
 
 // Path: <root>
@@ -331,11 +347,35 @@ class _StringsEs implements _StringsEn {
 
   // Translations
   @override
+  late final _StringsAuthEs auth = _StringsAuthEs._(_root);
+}
+
+// Path: auth
+class _StringsAuthEs implements _StringsAuthEn {
+  _StringsAuthEs._(this._root);
+
+  @override
+  final _StringsEs _root; // ignore: unused_field
+
+  // Translations
+  @override
+  String get o => 'ó';
+  @override
   String get signup => 'Registrarse';
   @override
   String get signin => 'Iniciar sesión';
   @override
   String get signout => 'Cerrar sesión';
+  @override
+  String get cancel => 'Cancelar';
+  @override
+  String get username => 'Usuario';
+  @override
+  String get password => 'Contraseña';
+  @override
+  String get repeatPassword => 'Repetir contraseña';
+  @override
+  String get passwordMustMatch => 'Las contraseñas deben coincidir';
 }
 
 /// Flat map(s) containing all translations.
@@ -344,9 +384,15 @@ class _StringsEs implements _StringsEn {
 extension on _StringsEn {
   Map<String, dynamic> _buildFlatMap() {
     return <String, dynamic>{
-      'signup': 'Sign Up',
-      'signin': 'Sign In',
-      'signout': 'Logout',
+      'auth.o': 'or',
+      'auth.signup': 'Sign Up',
+      'auth.signin': 'Sign In',
+      'auth.signout': 'Logout',
+      'auth.cancel': 'Cancel',
+      'auth.username': 'Username',
+      'auth.password': 'Password',
+      'auth.repeatPassword': 'Repeat password',
+      'auth.passwordMustMatch': 'Passwords must match',
     };
   }
 }
@@ -354,9 +400,15 @@ extension on _StringsEn {
 extension on _StringsEs {
   Map<String, dynamic> _buildFlatMap() {
     return <String, dynamic>{
-      'signup': 'Registrarse',
-      'signin': 'Iniciar sesión',
-      'signout': 'Cerrar sesión',
+      'auth.o': 'ó',
+      'auth.signup': 'Registrarse',
+      'auth.signin': 'Iniciar sesión',
+      'auth.signout': 'Cerrar sesión',
+      'auth.cancel': 'Cancelar',
+      'auth.username': 'Usuario',
+      'auth.password': 'Contraseña',
+      'auth.repeatPassword': 'Repetir contraseña',
+      'auth.passwordMustMatch': 'Las contraseñas deben coincidir',
     };
   }
 }

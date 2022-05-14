@@ -1,5 +1,13 @@
 {
-  "signup": "Registrarse",
-  "signin": "Iniciar sesión",
-  "signout": "Cerrar sesión"
+  "auth": {
+    "o": "ó",
+    "signup": "Registrarse",
+    "signin": "Iniciar sesión",
+    "signout": "Cerrar sesión",
+    "cancel": "Cancelar",
+    "username": "Usuario",
+    "password": "Contraseña",
+    "repeatPassword": "Repetir contraseña",
+    "passwordMustMatch": "Las contraseñas deben coincidir"
+  }
 }
