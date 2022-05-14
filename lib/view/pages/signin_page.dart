@@ -8,8 +8,11 @@ class SignInLocation extends BeamLocation<BeamState> {
   @override
   List<BeamPage> pagesBuilder(BuildContext context, BeamState state) => [
         BeamPage(
+          key: ValueKey(path),
           name: t.pages.home,
-          child: const SignInView(),
+          child: const Scaffold(
+            body: SignInView(),
+          ),
         ),
       ];
 

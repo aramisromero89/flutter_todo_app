@@ -7,8 +7,9 @@ class HomeLocation extends BeamLocation<BeamState> {
   @override
   List<BeamPage> pagesBuilder(BuildContext context, BeamState state) => [
         BeamPage(
+          key: ValueKey(path),
           name: t.pages.home,
-          child: const Text("home"),
+          child: const Scaffold(body: Text("home")),
         ),
       ];
 
