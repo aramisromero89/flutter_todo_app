@@ -11,38 +11,25 @@ class TaskRepository {
 
   Future<List<Task>> create(String userId, String text) async {
     final res = await _apiClient.mutate<MutationtaskCreate>(OptionsMutationtaskCreate(variables: VariablesMutationtaskCreate(text: text, userId: userId)));
-    if (res.error != null) {
-      return List.empty();
-    }
 
-    return res.data!.updateUser!.user.tasks.edges!.map((e) => Task.fromFragment(e!.node!)).toList();
+    return res.updateUser!.user.tasks.edges!.map((e) => Task.fromFragment(e!.node!)).toList();
   }
 
   Future<Task?> delete(String taskId) async {
     final res = await _apiClient.mutate<MutationtaskDelete>(OptionsMutationtaskDelete(variables: VariablesMutationtaskDelete(taskId: taskId)));
-    if (res.error != null) {
-      return null;
-    }
 
-    return Task.fromFragment(res.data!.deleteTask!.task);
+    return Task.fromFragment(res.deleteTask!.task);
   }
 
   Future<Task?> edit(String taskId, String text) async {
     final res = await _apiClient.mutate<MutationtaskUpdate>(OptionsMutationtaskUpdate(variables: VariablesMutationtaskUpdate(taskId: taskId, text: text)));
-    if (res.error != null) {
-      return null;
-    }
 
-    return Task.fromFragment(res.data!.updateTask!.task);
+    return Task.fromFragment(res.updateTask!.task);
   }
 
   Future<List<Task>> list() async {
     final res = await _apiClient.query<QuerytaskList>(OptionsQuerytaskList());
 
-    if (res.error != null) {
-      return List.empty();
-    }
-
-    return res.data!.viewer.user.tasks.edges!.map((e) => Task.fromFragment(e!.node!)).toList();
+    return res.viewer.user.tasks.edges!.map((e) => Task.fromFragment(e!.node!)).toList();
   }
 }

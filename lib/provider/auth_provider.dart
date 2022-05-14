@@ -8,17 +8,15 @@ class AuthProvider extends ChangeNotifier {
 
   Session? _session;
 
-  Session? get session {
-    return _session;
-  }
+  Session? get session => _session;
 
   Future<void> signIn(String username, String password) async {
     _session = await _repository.signIn(username, password);
     notifyListeners();
   }
 
-  Future<void> signUp(String username, String password, String avatar) async {
-    _session = await _repository.signUp(username, password, avatar);
+  Future<void> signUp(String username, String password) async {
+    _session = await _repository.signUp(username, password);
     notifyListeners();
   }
 

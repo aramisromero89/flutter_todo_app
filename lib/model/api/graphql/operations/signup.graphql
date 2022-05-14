@@ -1,5 +1,5 @@
-mutation signUp($username: String!, $password: String!, $avatar: String) {
-  signUp(input: { fields: { username: $username, password: $password, avatar: $avatar } }) {
+mutation signUp($username: String!, $password: String!) {
+  signUp(input: { fields: { username: $username, password: $password } }) {
     viewer {
       ...SessionFragment
     }

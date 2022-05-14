@@ -29,6 +29,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_localizations:
+    sdk: flutter
   graphql: ^5.1.1
   json_annotation: ^4.5.0
   dio: ^4.0.6
@@ -36,6 +38,9 @@ dependencies:
   flutter_dotenv: ^5.0.2
   get_it: ^7.2.0
   provider: ^6.0.2
+  form_validator: ^1.0.2
+  fast_i18n: ^5.12.4
+  beamer: ^0.12.3
 
 dev_dependencies:
   flutter_test:
