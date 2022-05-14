@@ -117,6 +117,8 @@ class SignUpView extends StatelessWidget {
                             validator: ValidationBuilder().add((value) {
                               if (provider.passwordController.text != value) {
                                 return t.auth.passwordMustMatch;
+                              } else {
+                                return null;
                               }
                             }).build(),
                             controller: provider.passwordConfirmController,
