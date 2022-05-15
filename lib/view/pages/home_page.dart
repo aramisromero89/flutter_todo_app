@@ -26,23 +26,6 @@ class HomePage extends StatelessWidget {
               Navigator.pushReplacementNamed(context, "/");
             },
           ),
-          // DropdownButton<String>(
-          //   value: LocaleSettings.currentLocale.name,
-          //   icon: const Icon(Icons.translate),
-          //   items: LocaleSettings.supportedLocales
-          //       .map(
-          //         (e) => DropdownMenuItem<String>(
-          //           value: e.languageCode,
-          //           child: Text(e.languageCode),
-          //         ),
-          //       )
-          //       .toList(),
-          //   onChanged: (langCode) {
-          //     print(langCode);
-          //     LocaleSettings.setLocaleRaw(langCode!);
-          //     Navigator.pushReplacementNamed(context, "/");
-          //   },
-          // ),
         ],
       ),
       body: ChangeNotifierProvider.value(
