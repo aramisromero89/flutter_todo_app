@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_todo_app/i18n/strings.g.dart';
 import 'package:flutter_todo_app/provider/auth_provider.dart';
-import 'package:flutter_todo_app/view/components/app_bar.dart';
 import 'package:flutter_todo_app/view/components/signin_view.dart';
 import 'package:get_it/get_it.dart';
 import 'package:provider/provider.dart';
