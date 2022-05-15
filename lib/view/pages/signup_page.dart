@@ -1,22 +1,14 @@
-import 'package:beamer/beamer.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_todo_app/i18n/strings.g.dart';
 import 'package:flutter_todo_app/view/components/signup_view.dart';
 
-class SignUpLocation extends BeamLocation<BeamState> {
-  static String path = '/signup';
-  @override
-  List<BeamPage> pagesBuilder(BuildContext context, BeamState state) => [
-        BeamPage(
-          key: ValueKey(path),
-          name: t.pages.home,
-          child: Scaffold(
-            appBar: AppBar(),
-            body: const SignUpView(),
-          ),
-        ),
-      ];
+class SignUpPage extends StatelessWidget {
+  const SignUpPage({Key? key}) : super(key: key);
 
   @override
-  List<String> get pathBlueprints => [path];
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(),
+      body: const SignUpView(),
+    );
+  }
 }
