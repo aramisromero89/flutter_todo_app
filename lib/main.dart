@@ -5,8 +5,7 @@ import 'package:flutter_todo_app/model/api/api_client.dart';
 import 'package:flutter_todo_app/model/repository/auth_repository.dart';
 import 'package:flutter_todo_app/model/repository/task_repository.dart';
 import 'package:flutter_todo_app/provider/auth_provider.dart';
-import 'package:beamer/beamer.dart';
-import 'package:flutter_todo_app/view/router.dart';
+import 'package:flutter_todo_app/view/router.dart' as routing;
 import 'package:get_it/get_it.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'i18n/strings.g.dart';
@@ -35,10 +34,9 @@ class MyApp extends StatelessWidget {
     });
   }
 
-  final routerDelegate = router();
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
+    return MaterialApp(
       title: 'TODO',
       locale: TranslationProvider.of(context).flutterLocale, // use provider
       supportedLocales: LocaleSettings.supportedLocales,
@@ -55,8 +53,8 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      routeInformationParser: BeamerRouteInformationParser(),
-      routerDelegate: routerDelegate,
+      initialRoute: routing.home,
+      routes: routing.routes,
     );
   }
 }
