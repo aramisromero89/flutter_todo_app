@@ -8,18 +8,19 @@ import 'package:flutter_todo_app/provider/auth_provider.dart';
 import 'package:beamer/beamer.dart';
 import 'package:flutter_todo_app/view/router.dart';
 import 'package:get_it/get_it.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'i18n/strings.g.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized(); // add this
   LocaleSettings.useDeviceLocale(); // and this
   await dotenv.load(fileName: ".env");
-  setupDependencies();
+  await setupDependencies();
 
   runApp(TranslationProvider(child: MyApp()));
 }
 
-void setupDependencies() {
+Future<void> setupDependencies() async {
   GetIt.I.registerSingleton<GraphqlApiClient>(GraphqlApiClient());
   GetIt.I.registerSingleton<AuthRepository>(AuthRepository());
   GetIt.I.registerSingleton<TaskRepository>(TaskRepository());
@@ -27,7 +28,12 @@ void setupDependencies() {
 }
 
 class MyApp extends StatelessWidget {
-  MyApp({Key? key}) : super(key: key);
+  MyApp({Key? key}) : super(key: key) {
+    SharedPreferences.getInstance().then((value) {
+      GetIt.I.registerSingleton<SharedPreferences>(value);
+      GetIt.I<AuthProvider>().loadSessionFromSharedPreferences();
+    });
+  }
 
   final routerDelegate = router();
   @override
