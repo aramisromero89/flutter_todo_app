@@ -8,6 +8,7 @@ import 'package:flutter_todo_app/provider/auth_provider.dart';
 import 'package:flutter_todo_app/view/router.dart' as routing;
 import 'package:form_validator/form_validator.dart';
 import 'package:get_it/get_it.dart';
+import 'package:responsive_framework/responsive_wrapper.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'i18n/strings.g.dart';
 import 'provider/task_provider.dart';
@@ -57,6 +58,15 @@ class MyApp extends StatelessWidget {
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
         primarySwatch: Colors.blue,
+      ),
+      builder: (context, child) => ResponsiveWrapper.builder(
+        child,
+        minWidth: 480,
+        //defaultScale: true,
+        breakpoints: [
+          const ResponsiveBreakpoint.resize(800, name: MOBILE),
+          const ResponsiveBreakpoint.resize(1230, name: TABLET),
+        ],
       ),
       initialRoute: routing.home,
       routes: routing.routes,
