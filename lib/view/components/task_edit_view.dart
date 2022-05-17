@@ -3,9 +3,7 @@ import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:flutter_todo_app/i18n/strings.g.dart';
 import 'package:flutter_todo_app/model/entity/task.dart';
 import 'package:flutter_todo_app/provider/task_edit_provider.dart';
-import 'package:flutter_todo_app/provider/task_provider.dart';
 import 'package:flutter_todo_app/view/view_utils.dart';
-import 'package:get_it/get_it.dart';
 import 'package:provider/provider.dart';
 
 class TaskEditView extends StatelessWidget {
