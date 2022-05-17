@@ -40,9 +40,7 @@ class AuthProvider extends ChangeNotifier {
   }
 
   Future<void> signOut() async {
-    final res = await _repository.signOut();
-    if (res) {
-      _setSession(null);
-    }
+    _setSession(null);
+    _repository.signOut();
   }
 }
