@@ -12,5 +12,8 @@
   },
   "pages":{
     "home": "Home"
+  },
+  "task":{
+    "addHint": "Type to add new task"
   }
 }

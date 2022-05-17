@@ -2,9 +2,9 @@
  * Generated file. Do not edit.
  *
  * Locales: 2
- * Strings: 20 (10.0 per locale)
+ * Strings: 22 (11.0 per locale)
  *
- * Built on 2022-05-14 at 12:27 UTC
+ * Built on 2022-05-16 at 15:12 UTC
  */
 
 import 'package:flutter/widgets.dart';
@@ -309,6 +309,7 @@ class _StringsEn {
   // Translations
   late final _StringsAuthEn auth = _StringsAuthEn._(_root);
   late final _StringsPagesEn pages = _StringsPagesEn._(_root);
+  late final _StringsTaskEn task = _StringsTaskEn._(_root);
 }
 
 // Path: auth
@@ -339,6 +340,16 @@ class _StringsPagesEn {
   String get home => 'Home';
 }
 
+// Path: task
+class _StringsTaskEn {
+  _StringsTaskEn._(this._root);
+
+  final _StringsEn _root; // ignore: unused_field
+
+  // Translations
+  String get addHint => 'Type to add new task';
+}
+
 // Path: <root>
 class _StringsEs implements _StringsEn {
   /// You can call this constructor and build your own translation instance of this locale.
@@ -361,6 +372,8 @@ class _StringsEs implements _StringsEn {
   late final _StringsAuthEs auth = _StringsAuthEs._(_root);
   @override
   late final _StringsPagesEs pages = _StringsPagesEs._(_root);
+  @override
+  late final _StringsTaskEs task = _StringsTaskEs._(_root);
 }
 
 // Path: auth
@@ -403,6 +416,18 @@ class _StringsPagesEs implements _StringsPagesEn {
   String get home => 'Inicio';
 }
 
+// Path: task
+class _StringsTaskEs implements _StringsTaskEn {
+  _StringsTaskEs._(this._root);
+
+  @override
+  final _StringsEs _root; // ignore: unused_field
+
+  // Translations
+  @override
+  String get addHint => 'Escriba para agregar tarea';
+}
+
 /// Flat map(s) containing all translations.
 /// Only for edge cases! For simple maps, use the map function of this library.
 
@@ -419,6 +444,7 @@ extension on _StringsEn {
       'auth.repeatPassword': 'Repeat password',
       'auth.passwordMustMatch': 'Passwords must match',
       'pages.home': 'Home',
+      'task.addHint': 'Type to add new task',
     };
   }
 }
@@ -436,6 +462,7 @@ extension on _StringsEs {
       'auth.repeatPassword': 'Repetir contraseña',
       'auth.passwordMustMatch': 'Las contraseñas deben coincidir',
       'pages.home': 'Inicio',
+      'task.addHint': 'Escriba para agregar tarea',
     };
   }
 }
