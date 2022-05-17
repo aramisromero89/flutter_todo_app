@@ -91,6 +91,7 @@ class SignUpView extends StatelessWidget {
                             decoration: InputDecoration(
                               prefixIcon: const Icon(Icons.key_rounded),
                               suffixIcon: IconButton(
+                                focusNode: FocusNode(skipTraversal: true),
                                 icon: Icon(provider.hidePassword ? Icons.visibility_rounded : Icons.visibility_off_rounded),
                                 onPressed: () => provider.togglePasswordVisibility(),
                               ),
