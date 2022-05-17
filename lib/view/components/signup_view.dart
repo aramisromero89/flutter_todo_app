@@ -70,6 +70,7 @@ class SignUpView extends StatelessWidget {
                       child: Column(
                         children: <Widget>[
                           TextFormField(
+                            readOnly: provider.submitting,
                             textInputAction: TextInputAction.next,
                             decoration: InputDecoration(
                               prefixIcon: const Icon(Icons.person_rounded),
@@ -80,6 +81,7 @@ class SignUpView extends StatelessWidget {
                             controller: provider.usernameController,
                           ),
                           TextFormField(
+                            readOnly: provider.submitting,
                             textInputAction: TextInputAction.next,
                             obscureText: provider.hidePassword,
                             decoration: InputDecoration(
@@ -95,6 +97,7 @@ class SignUpView extends StatelessWidget {
                             controller: provider.passwordController,
                           ),
                           TextFormField(
+                            readOnly: provider.submitting,
                             onFieldSubmitted: (_) => provider.submit(),
                             textInputAction: TextInputAction.done,
                             obscureText: provider.hideConfirmPassword,
