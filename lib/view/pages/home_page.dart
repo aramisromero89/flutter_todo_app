@@ -15,23 +15,9 @@ class HomePage extends StatelessWidget {
       value: GetIt.I<AuthProvider>(),
       child: Consumer<AuthProvider>(
           builder: (context, provider, child) => Scaffold(
-                drawer: provider.session == null ? null : drawer(),
+                drawer: provider.session == null ? null : drawer(context),
                 appBar: AppBar(
                   title: const Text("TODO"),
-                  actions: [
-                    PopupMenuButton(
-                      icon: const Icon(Icons.translate),
-                      itemBuilder: (_) => LocaleSettings.supportedLocales
-                          .map(
-                            (e) => PopupMenuItem(child: Text(e.languageCode), value: e.languageCode),
-                          )
-                          .toList(),
-                      onSelected: (String code) {
-                        LocaleSettings.setLocaleRaw(code);
-                        Navigator.pushReplacementNamed(context, "/");
-                      },
-                    ),
-                  ],
                 ),
                 body: ChangeNotifierProvider.value(
                   value: GetIt.I<AuthProvider>(),
@@ -43,30 +29,49 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  Drawer drawer() {
+  Drawer drawer(BuildContext context) {
     return Drawer(
       child: ListView(
         // Important: Remove any padding from the ListView.
         padding: EdgeInsets.zero,
         children: [
-          const DrawerHeader(
-            decoration: BoxDecoration(
-              // image: ,
+          DrawerHeader(
+            decoration: const BoxDecoration(
+              image: DecorationImage(image: AssetImage('assets/todo.png'), fit: BoxFit.cover),
               color: Colors.blue,
             ),
-            child: Text('Drawer Header'),
+            child: Container(),
           ),
           ListTile(
-            title: const Text('Item 1'),
-            onTap: () {
-              // Update the state of the app.
-              // ...
+            title: Row(
+              children: [const Icon(Icons.account_box), Text(GetIt.I<AuthProvider>().session!.userName)],
+            ),
+          ),
+          ListTile(title: Text(t.general.language)),
+          ...LocaleSettings.supportedLocales.map(
+            (locale) {
+              return ListTile(
+                  title: Padding(
+                    padding: const EdgeInsets.only(left: 10),
+                    child: Text(locale.languageCode,
+                        style: TextStyle(
+                            color: LocaleSettings.currentLocale.flutterLocale.languageCode == locale.languageCode
+                                ? Theme.of(context).primaryColor
+                                : Colors.black)),
+                  ),
+                  onTap: () {
+                    LocaleSettings.setLocaleRaw(locale.languageCode);
+                    Navigator.popUntil(context, ModalRoute.withName('/'));
+                  });
             },
-          ),
+          ).toList(),
           ListTile(
-            title: const Text('logout'),
+            title: Row(
+              children: [const Icon(Icons.logout), Text(t.auth.signout)],
+            ),
             onTap: () {
               GetIt.I<AuthProvider>().signOut();
+              Navigator.popUntil(context, ModalRoute.withName('/'));
             },
           ),
         ],
