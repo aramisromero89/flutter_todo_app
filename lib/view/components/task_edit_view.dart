@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:flutter_todo_app/i18n/strings.g.dart';
@@ -5,6 +7,7 @@ import 'package:flutter_todo_app/model/entity/task.dart';
 import 'package:flutter_todo_app/provider/task_edit_provider.dart';
 import 'package:flutter_todo_app/view/view_utils.dart';
 import 'package:provider/provider.dart';
+import 'package:responsive_framework/responsive_framework.dart';
 
 class TaskEditView extends StatelessWidget {
   final Task? task;
@@ -65,15 +68,39 @@ class TaskEditView extends StatelessWidget {
   Widget _mainButton() {
     return Consumer<TaskEditProvider>(
       builder: (context, provider, child) {
-        return ElevatedButton(
-          onPressed: () {
-            try {
-              provider.submit();
-            } catch (e) {
-              ViewUtils.showSnackBar(context, e.toString());
-            }
-          },
-          child: Icon(provider.buttonIconData),
+        return Row(
+          children: [
+            ResponsiveVisibility(
+                child: ElevatedButton(
+                  style: ButtonStyle(backgroundColor: MaterialStateProperty.all<Color>(Colors.grey)),
+                  onPressed: () {
+                    provider.cancel();
+                  },
+                  child: Text(
+                    t.task.cancel,
+                    style: const TextStyle(color: Colors.black),
+                  ),
+                ),
+                hiddenWhen: const [Condition.smallerThan(name: TABLET)]),
+            const Padding(padding: EdgeInsets.all(10)),
+            ElevatedButton(
+              onPressed: provider.textController.text.isEmpty &&
+                      ResponsiveValue<bool>(context, defaultValue: false, valueWhen: const [Condition.largerThan(name: MOBILE, value: true)]).value!
+                  ? null
+                  : () {
+                      try {
+                        provider.submit();
+                      } catch (e) {
+                        ViewUtils.showSnackBar(context, e.toString());
+                      }
+                    },
+              child: ResponsiveVisibility(
+                child: Icon(provider.buttonIconData),
+                hiddenWhen: const [Condition.largerThan(name: MOBILE)],
+                replacement: Text(t.task.ok),
+              ),
+            )
+          ],
         );
       },
     );
