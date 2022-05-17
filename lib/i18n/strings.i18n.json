@@ -1,4 +1,7 @@
 {  
+  "general":{
+    "language": "Language"
+  },
   "auth": {
     "o": "or",
     "signup": "Sign Up",

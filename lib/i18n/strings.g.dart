@@ -2,9 +2,9 @@
  * Generated file. Do not edit.
  *
  * Locales: 2
- * Strings: 22 (11.0 per locale)
+ * Strings: 24 (12.0 per locale)
  *
- * Built on 2022-05-16 at 15:12 UTC
+ * Built on 2022-05-17 at 02:18 UTC
  */
 
 import 'package:flutter/widgets.dart';
@@ -307,9 +307,20 @@ class _StringsEn {
   late final _StringsEn _root = this; // ignore: unused_field
 
   // Translations
+  late final _StringsGeneralEn general = _StringsGeneralEn._(_root);
   late final _StringsAuthEn auth = _StringsAuthEn._(_root);
   late final _StringsPagesEn pages = _StringsPagesEn._(_root);
   late final _StringsTaskEn task = _StringsTaskEn._(_root);
+}
+
+// Path: general
+class _StringsGeneralEn {
+  _StringsGeneralEn._(this._root);
+
+  final _StringsEn _root; // ignore: unused_field
+
+  // Translations
+  String get language => 'Language';
 }
 
 // Path: auth
@@ -369,11 +380,25 @@ class _StringsEs implements _StringsEn {
 
   // Translations
   @override
+  late final _StringsGeneralEs general = _StringsGeneralEs._(_root);
+  @override
   late final _StringsAuthEs auth = _StringsAuthEs._(_root);
   @override
   late final _StringsPagesEs pages = _StringsPagesEs._(_root);
   @override
   late final _StringsTaskEs task = _StringsTaskEs._(_root);
+}
+
+// Path: general
+class _StringsGeneralEs implements _StringsGeneralEn {
+  _StringsGeneralEs._(this._root);
+
+  @override
+  final _StringsEs _root; // ignore: unused_field
+
+  // Translations
+  @override
+  String get language => 'Idioma';
 }
 
 // Path: auth
@@ -434,6 +459,7 @@ class _StringsTaskEs implements _StringsTaskEn {
 extension on _StringsEn {
   Map<String, dynamic> _buildFlatMap() {
     return <String, dynamic>{
+      'general.language': 'Language',
       'auth.o': 'or',
       'auth.signup': 'Sign Up',
       'auth.signin': 'Sign In',
@@ -452,6 +478,7 @@ extension on _StringsEn {
 extension on _StringsEs {
   Map<String, dynamic> _buildFlatMap() {
     return <String, dynamic>{
+      'general.language': 'Idioma',
       'auth.o': 'ó',
       'auth.signup': 'Registrarse',
       'auth.signin': 'Iniciar sesión',
