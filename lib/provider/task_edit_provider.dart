@@ -52,6 +52,10 @@ class TaskEditProvider extends ChangeNotifier {
     notifyListeners();
   }
 
+  void cancel() {
+    GetIt.I<TaskProvider>().cancelEdition();
+  }
+
   submit({deleteAction = false}) async {
     submiting = true;
     notifyListeners();

@@ -2,9 +2,9 @@
  * Generated file. Do not edit.
  *
  * Locales: 2
- * Strings: 24 (12.0 per locale)
+ * Strings: 28 (14.0 per locale)
  *
- * Built on 2022-05-17 at 02:18 UTC
+ * Built on 2022-05-17 at 20:38 UTC
  */
 
 import 'package:flutter/widgets.dart';
@@ -359,6 +359,8 @@ class _StringsTaskEn {
 
   // Translations
   String get addHint => 'Type to add new task';
+  String get ok => 'OK';
+  String get cancel => 'Cancel';
 }
 
 // Path: <root>
@@ -451,6 +453,10 @@ class _StringsTaskEs implements _StringsTaskEn {
   // Translations
   @override
   String get addHint => 'Escriba para agregar tarea';
+  @override
+  String get ok => 'Aceptar';
+  @override
+  String get cancel => 'Cancelar';
 }
 
 /// Flat map(s) containing all translations.
@@ -471,6 +477,8 @@ extension on _StringsEn {
       'auth.passwordMustMatch': 'Passwords must match',
       'pages.home': 'Home',
       'task.addHint': 'Type to add new task',
+      'task.ok': 'OK',
+      'task.cancel': 'Cancel',
     };
   }
 }
@@ -490,6 +498,8 @@ extension on _StringsEs {
       'auth.passwordMustMatch': 'Las contraseñas deben coincidir',
       'pages.home': 'Inicio',
       'task.addHint': 'Escriba para agregar tarea',
+      'task.ok': 'Aceptar',
+      'task.cancel': 'Cancelar',
     };
   }
 }

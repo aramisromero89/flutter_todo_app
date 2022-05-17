@@ -43,6 +43,7 @@ dependencies:
   beamer: ^0.12.3
   shared_preferences: ^2.0.15
   flutter_feather_icons: ^2.0.0+1
+  responsive_framework: 0.1.7
 
 dev_dependencies:
   flutter_test:
