@@ -9,6 +9,7 @@ import 'package:flutter_todo_app/view/router.dart' as routing;
 import 'package:get_it/get_it.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'i18n/strings.g.dart';
+import 'provider/task_provider.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized(); // add this
@@ -24,6 +25,7 @@ Future<void> setupDependencies() async {
   GetIt.I.registerSingleton<AuthRepository>(AuthRepository());
   GetIt.I.registerSingleton<TaskRepository>(TaskRepository());
   GetIt.I.registerSingleton<AuthProvider>(AuthProvider());
+  GetIt.I.registerSingleton<TaskProvider>(TaskProvider());
 }
 
 class MyApp extends StatelessWidget {
