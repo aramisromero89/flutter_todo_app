@@ -6,6 +6,7 @@ import 'package:flutter_todo_app/model/repository/auth_repository.dart';
 import 'package:flutter_todo_app/model/repository/task_repository.dart';
 import 'package:flutter_todo_app/provider/auth_provider.dart';
 import 'package:flutter_todo_app/view/router.dart' as routing;
+import 'package:form_validator/form_validator.dart';
 import 'package:get_it/get_it.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'i18n/strings.g.dart';
@@ -38,6 +39,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final locale = TranslationProvider.of(context).flutterLocale;
+    ValidationBuilder.setLocale(locale.languageCode);
     return MaterialApp(
       title: 'TODO',
       locale: TranslationProvider.of(context).flutterLocale, // use provider
