@@ -17,6 +17,8 @@
     "home": "Home"
   },
   "task":{
-    "addHint": "Type to add new task"
+    "addHint": "Type to add new task",
+    "ok": "OK",
+    "cancel": "Cancel"
   }
 }

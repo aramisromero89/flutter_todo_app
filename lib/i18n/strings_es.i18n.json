@@ -17,6 +17,8 @@
     "home": "Inicio"
   },
   "task":{
-    "addHint": "Escriba para agregar tarea"
+    "addHint": "Escriba para agregar tarea",
+    "ok": "Aceptar",
+    "cancel": "Cancelar"
   }
 }
