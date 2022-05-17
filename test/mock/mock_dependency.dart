@@ -5,6 +5,7 @@ import 'package:flutter_todo_app/model/repository/task_repository.dart';
 import 'package:flutter_todo_app/provider/auth_provider.dart';
 import 'package:flutter_todo_app/provider/task_provider.dart';
 import 'package:get_it/get_it.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'mock_auth_repository.dart';
 import 'mock_task_repository.dart';
@@ -16,4 +17,6 @@ Future<void> mockDependencies() async {
   GetIt.I.registerSingleton<TaskRepository>(MockTaskRepository());
   GetIt.I.registerSingleton<AuthProvider>(AuthProvider());
   GetIt.I.registerSingleton<TaskProvider>(TaskProvider());
+  final sp = await SharedPreferences.getInstance();
+  GetIt.I.registerSingleton<SharedPreferences>(sp);
 }

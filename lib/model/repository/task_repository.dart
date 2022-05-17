@@ -5,6 +5,7 @@ import 'package:flutter_todo_app/model/api/graphql/operations/task-list.graphql.
 import 'package:flutter_todo_app/model/api/graphql/operations/task-update.graphql.dart';
 import 'package:flutter_todo_app/model/entity/task.dart';
 import 'package:get_it/get_it.dart';
+import 'package:graphql/client.dart';
 
 class TaskRepository {
   final _apiClient = GetIt.I<GraphqlApiClient>();
@@ -28,7 +29,7 @@ class TaskRepository {
   }
 
   Future<List<Task>> list() async {
-    final res = await _apiClient.query<QuerytaskList>(OptionsQuerytaskList());
+    final res = await _apiClient.query<QuerytaskList>(OptionsQuerytaskList(fetchPolicy: FetchPolicy.networkOnly));
 
     return res.viewer.user.tasks.edges!.map((e) => Task.fromFragment(e!.node!)).toList();
   }

@@ -41,6 +41,8 @@ dependencies:
   form_validator: ^1.0.2
   fast_i18n: ^5.12.4
   beamer: ^0.12.3
+  shared_preferences: ^2.0.15
+  flutter_feather_icons: ^2.0.0+1
 
 dev_dependencies:
   flutter_test:
@@ -73,6 +75,7 @@ flutter:
   #   - images/a_dot_ham.jpeg
   assets:
   - .env
+  - assets/todo.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 

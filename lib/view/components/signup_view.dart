@@ -1,8 +1,6 @@
-import 'package:beamer/beamer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_todo_app/i18n/strings.g.dart';
 import 'package:flutter_todo_app/provider/signup_provider.dart';
-import 'package:flutter_todo_app/view/pages/signin_page.dart';
 import 'package:flutter_todo_app/view/view_utils.dart';
 import 'package:form_validator/form_validator.dart';
 import 'package:provider/provider.dart';
@@ -30,17 +28,12 @@ class SignUpView extends StatelessWidget {
             onPressed: () async {
               try {
                 await provider.submit();
+                Navigator.pop(context);
               } catch (e) {
                 ViewUtils.showSnackBar(context, e.toString());
               }
             },
             child: Text(t.auth.signup),
-          ),
-          OutlinedButton(
-            onPressed: () {
-              Beamer.of(context).beamToNamed(SignInLocation.path);
-            },
-            child: Text(t.auth.cancel),
           ),
         ]
             .map((e) => Padding(
@@ -77,6 +70,7 @@ class SignUpView extends StatelessWidget {
                       child: Column(
                         children: <Widget>[
                           TextFormField(
+                            readOnly: provider.submitting,
                             textInputAction: TextInputAction.next,
                             decoration: InputDecoration(
                               prefixIcon: const Icon(Icons.person_rounded),
@@ -87,6 +81,7 @@ class SignUpView extends StatelessWidget {
                             controller: provider.usernameController,
                           ),
                           TextFormField(
+                            readOnly: provider.submitting,
                             textInputAction: TextInputAction.next,
                             obscureText: provider.hidePassword,
                             decoration: InputDecoration(
@@ -102,6 +97,7 @@ class SignUpView extends StatelessWidget {
                             controller: provider.passwordController,
                           ),
                           TextFormField(
+                            readOnly: provider.submitting,
                             onFieldSubmitted: (_) => provider.submit(),
                             textInputAction: TextInputAction.done,
                             obscureText: provider.hideConfirmPassword,

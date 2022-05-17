@@ -1,4 +1,7 @@
 {
+  "general":{
+    "language": "Idioma"
+  },
   "auth": {
     "o": "ó",
     "signup": "Registrarse",
@@ -12,5 +15,8 @@
   },
   "pages":{
     "home": "Inicio"
+  },
+  "task":{
+    "addHint": "Escriba para agregar tarea"
   }
 }

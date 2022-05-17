@@ -9,8 +9,16 @@ class TaskProvider extends ChangeNotifier {
 
   final _repository = GetIt.I<TaskRepository>();
 
-  final List<Task> _tasks = [];
+  bool _refreshing = false;
+  bool get refreshing => _refreshing;
 
+  String? _editingTaskId;
+  String? get editingTaskId => _editingTaskId;
+
+  bool _creatingTask = false;
+  bool get creatingTask => _creatingTask;
+
+  final List<Task> _tasks = [];
   List<Task> get tasks => List.unmodifiable(_tasks);
 
   TaskProvider() {
@@ -23,15 +31,43 @@ class TaskProvider extends ChangeNotifier {
     super.dispose();
   }
 
-  Future<void> refresh({List<Task>? list}) async {
-    _tasks.clear();
-    if (list != null) {
-      _tasks.addAll(list);
-    } else if (_authProvider.session != null) {
-      final res = await _repository.list();
-      _tasks.addAll(res);
-    }
+  void viewCreateTask() {
+    _creatingTask = true;
+    _editingTaskId = null;
     notifyListeners();
+  }
+
+  void viewEditTask(String id) {
+    _creatingTask = false;
+    _editingTaskId = id;
+    notifyListeners();
+  }
+
+  void cancelEdition() {
+    _creatingTask = false;
+    _editingTaskId = null;
+    notifyListeners();
+  }
+
+  Future<void> refresh({List<Task>? list}) async {
+    _refreshing = true;
+    notifyListeners();
+    try {
+      _tasks.clear();
+      if (list != null) {
+        _tasks.addAll(list);
+      } else if (_authProvider.session != null) {
+        final res = await _repository.list();
+        _tasks.addAll(res);
+      }
+    } catch (e) {
+      _refreshing = false;
+      cancelEdition();
+      rethrow;
+    }
+
+    _refreshing = false;
+    cancelEdition();
   }
 
   Future<void> addTask(String text) async {
@@ -47,7 +83,7 @@ class TaskProvider extends ChangeNotifier {
     final res = await _repository.delete(taskId);
     if (res != null) {
       _tasks.removeWhere((element) => element.id == res.id);
-      notifyListeners();
+      cancelEdition();
     }
   }
 
@@ -57,5 +93,6 @@ class TaskProvider extends ChangeNotifier {
       final index = _tasks.indexWhere((element) => element.id == res.id);
       _tasks.fillRange(index, 1, res);
     }
+    cancelEdition();
   }
 }
