@@ -18,6 +18,17 @@ class SignUpView extends StatelessWidget {
     );
   }
 
+  submit(BuildContext context, SignUpProvider provider) async {
+    try {
+      await provider.submit();
+      if (GetIt.I<AuthProvider>().session != null) {
+        Navigator.pop(context);
+      }
+    } catch (e) {
+      ViewUtils.showSnackBar(context, e.toString());
+    }
+  }
+
   Widget _submitButton() {
     return Consumer<SignUpProvider>(builder: (context, provider, child) {
       if (provider.submitting) {
@@ -27,15 +38,8 @@ class SignUpView extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           ElevatedButton(
-            onPressed: () async {
-              try {
-                await provider.submit();
-                if (GetIt.I<AuthProvider>().session != null) {
-                  Navigator.pop(context);
-                }
-              } catch (e) {
-                ViewUtils.showSnackBar(context, e.toString());
-              }
+            onPressed: () {
+              submit(context, provider);
             },
             child: Text(t.auth.signup),
           ),
@@ -103,12 +107,13 @@ class SignUpView extends StatelessWidget {
                           ),
                           TextFormField(
                             readOnly: provider.submitting,
-                            onFieldSubmitted: (_) => provider.submit(),
+                            onFieldSubmitted: (_) => submit(context, provider),
                             textInputAction: TextInputAction.done,
                             obscureText: provider.hideConfirmPassword,
                             decoration: InputDecoration(
                               prefixIcon: const Icon(Icons.key_rounded),
                               suffixIcon: IconButton(
+                                focusNode: FocusNode(skipTraversal: true),
                                 icon: Icon(provider.hideConfirmPassword ? Icons.visibility_rounded : Icons.visibility_off_rounded),
                                 onPressed: () => provider.toggleConfirmPasswordVisibility(),
                               ),
